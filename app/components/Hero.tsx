@@ -197,7 +197,7 @@ export default function Hero() {
                   that drives engagement and delivers measurable results.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
+                <div className="flex flex-col sm:flex-row gap-4 mb-6 justify-center lg:justify-start">
                   <div className="flex items-center gap-2">
                     <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
                       <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -216,6 +216,39 @@ export default function Hero() {
                     <span className="text-gray-700 font-medium">Content Creation</span>
                   </div>
                 </div>
+                
+                {/* Professional Button with Single Animated Dropdown Icon */}
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => {
+                    const section = document.getElementById('about');
+                    section?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-medium rounded-full shadow-lg hover:shadow-emerald-500/30 transition-all duration-300 mx-auto cursor-pointer"
+                >
+                  Explore more
+                  <motion.svg
+                    className="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      repeatType: 'loop',
+                      ease: 'easeInOut',
+                    }}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </motion.svg>
+                </motion.button>
               </motion.div>
             </div>
           </div>
@@ -224,4 +257,3 @@ export default function Hero() {
     </motion.section>
   );
 }
-
