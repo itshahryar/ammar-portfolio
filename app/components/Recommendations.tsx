@@ -130,7 +130,7 @@ export default function Recommendations() {
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="pb-12"
+            className="pb-20 md:pb-12"
           >
             {recommendations.map((rec, index) => (
               <SwiperSlide key={index}>
@@ -183,9 +183,32 @@ export default function Recommendations() {
           </Swiper>
           
           {/* --- ELEGANT NAVIGATION BUTTONS --- */}
+          {/* Container for mobile navigation buttons */}
+          <div className="md:hidden flex justify-center items-center gap-8 mt-4">
+            <button
+              onClick={() => swiperRef.current?.slidePrev()}
+              className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full shadow-lg items-center justify-center cursor-pointer hover:bg-white/30 transition-all duration-300 border border-white/30 flex"
+              aria-label="Previous"
+            >
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={() => swiperRef.current?.slideNext()}
+              className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full shadow-lg items-center justify-center cursor-pointer hover:bg-white/30 transition-all duration-300 border border-white/30 flex"
+              aria-label="Next"
+            >
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+          
+          {/* Desktop navigation buttons */}
           <button
             onClick={() => swiperRef.current?.slidePrev()}
-            className="absolute left-0 sm:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-white/30 transition-all duration-300 border border-white/30 z-10"
+            className="hidden md:flex absolute left-0 sm:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full shadow-lg items-center justify-center cursor-pointer hover:bg-white/30 transition-all duration-300 border border-white/30 z-10"
             aria-label="Previous"
           >
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,7 +217,7 @@ export default function Recommendations() {
           </button>
           <button
             onClick={() => swiperRef.current?.slideNext()}
-            className="absolute right-0 sm:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-white/30 transition-all duration-300 border border-white/30 z-10"
+            className="hidden md:flex absolute right-0 sm:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full shadow-lg items-center justify-center cursor-pointer hover:bg-white/30 transition-all duration-300 border border-white/30 z-10"
             aria-label="Next"
           >
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -206,4 +229,3 @@ export default function Recommendations() {
     </section>
   );
 }
-
