@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ammar - Multidisciplinary Professional Portfolio",
   description: "Media, Journalism, Content, Design & Digital Marketing Professional",
+  icons: { icon: "/logo.png", },
 };
 
 export default function RootLayout({
@@ -35,3 +36,4 @@ export default function RootLayout({
     </html>
   );
 }
+

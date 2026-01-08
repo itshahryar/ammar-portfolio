@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { navItems } from '../constants/data';
 import {
   HiMenu,
@@ -56,49 +57,63 @@ export default function Header() {
           isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-md' : 'bg-white'
         }`}
       >
-        <nav className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <motion.a
-              href="#"
-              className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent"
-              whileHover={{ scale: 1.05 }}
-            >
-              Ammar
-            </motion.a>
+    <nav className="container mx-auto px-6 py-4">
+  <div className="flex items-center justify-between">
+    <div className="flex items-center gap-3">
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        className="relative"
+      >
+        <Image 
+          src="/logo.png" 
+          alt="Ammar Logo" 
+          width={40} 
+          height={40}
+          className="rounded-full object-cover"
+        />
+      </motion.div>
+      <motion.a
+        href="#"
+        className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent"
+        whileHover={{ scale: 1.05 }}
+      >
+        Ammar
+      </motion.a>
+    </div>
 
-            <div className="hidden md:flex items-center gap-8">
-              {navItems.map((item, index) => (
-                <motion.a
-                  key={index}
-                  href={item.href}
-                  className="font-medium transition-colors relative group text-gray-700 hover:text-emerald-600"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-600 transition-all duration-300 group-hover:w-full" />
-                </motion.a>
-              ))}
-            </div>
+    <div className="hidden md:flex items-center gap-8">
+      {navItems.map((item, index) => (
+        <motion.a
+          key={index}
+          href={item.href}
+          className="font-medium transition-colors relative group text-gray-700 hover:text-emerald-600"
+          whileHover={{ scale: 1.05 }}
+        >
+          {item.label}
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-600 transition-all duration-300 group-hover:w-full" />
+        </motion.a>
+      ))}
+    </div>
 
-            <motion.a
-              href="#contact"
-              className="hidden md:block px-6 py-2 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get In Touch
-            </motion.a>
+    <motion.a
+      href="#contact"
+      className="hidden md:block px-6 py-2 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      Get In Touch
+    </motion.a>
 
-            <motion.button
-              className="md:hidden text-gray-700"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              {isMobileMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
-            </motion.button>
-          </div>
-        </nav>
+    <motion.button
+      className="md:hidden text-gray-700"
+      onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+    >
+      {isMobileMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+    </motion.button>
+  </div>
+</nav>
       </motion.header>
 
       {/* ================= MOBILE DRAWER ================= */}
